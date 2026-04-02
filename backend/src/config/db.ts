@@ -1,12 +1,15 @@
 import { Sequelize } from "sequelize";
+import dotenv  from "dotenv"
+
+dotenv.config()
 
 export const sequelize = new Sequelize(
-  "blog_post_manager",
-  "root",
-  "admin",
+  process.env.DB_NAME as string,
+  process.env.DB_USERID  as string,
+  process.env.DB_PASSWORD  as string,
   {
     host: "localhost",
     dialect: "mysql",
   }
 );
-
+ 
