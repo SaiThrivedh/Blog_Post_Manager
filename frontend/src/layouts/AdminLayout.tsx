@@ -1,0 +1,28 @@
+import "../css/SuperAdminLayout.css";
+import "../css/SuperAdminNavbar.css";
+import AdminSidebar from "../components/AdminSidebar" // Make sure to use .sidebar classes there
+import AdminNavbar from "../components/AdminNavbar";
+
+import { Outlet } from "react-router-dom";
+
+const AdminLayout = () => {
+  return (
+    <div className="app-layout">
+     
+      <AdminSidebar />
+
+      <div className="content-right">
+        
+        <AdminNavbar />
+
+        
+        <main className="main-scrollable-area">
+          <Outlet /> 
+          
+        </main>
+      </div>
+    </div>
+  );
+};
+
+export default AdminLayout;
