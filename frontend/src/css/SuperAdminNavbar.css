@@ -11,77 +11,50 @@
 
 
 .navbar {
-  height: 64px;
-  background-color: var(--bg-card);
+  height: var(--nav-height);
+  background: var(--bg-card);
   border-bottom: 1px solid var(--border);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding: 0 2rem;
-  flex-shrink: 0;
 }
+
 
 .navbar-title {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  color: var(--text-main);
+  color: var(--text-main); /* 🔥 not blue anymore */
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
-}
-
-.nav-item-link {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.nav-item-link:hover {
-  color: var(--primary);
-}
-
-/* User Profile Section on the right */
-.user-profile {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding-left: 1.5rem;
-  border-left: 1px solid var(--border);
-}
-
-.navbar {
-  height: 64px;
-  background-color: var(--bg-card);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
-  flex-shrink: 0; /* Keep height consistent */
-}
-
-.navbar h2 {
-  font-size: 1rem;
-  color: var(--text-main);
-  font-weight: 600;
-}
-
-.nav-links {
-  display: flex;
   gap: 1.5rem;
 }
 
-.nav-links span {
-  font-size: 0.85rem;
+
+.nav-item {
+  font-size: 0.9rem;
   color: var(--text-muted);
   cursor: pointer;
   font-weight: 500;
+  text-decoration: none; 
+
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: 0.2s;
 }
 
-.nav-links span:hover {
+.nav-item:hover {
+  background: #f1f5f9;
+  color: var(--text-main);
+}
+
+
+.nav-item.active {
   color: var(--primary);
+  font-weight: 600;
 }

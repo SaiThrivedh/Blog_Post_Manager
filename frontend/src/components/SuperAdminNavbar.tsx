@@ -1,29 +1,30 @@
+import { Link, useNavigate } from "react-router-dom";
+import "../css/SuperAdminNavbar.css";
 
-import { useNavigate } from "react-router-dom";
-import "../css/SuperAdminNavbar.css"
 const SuperAdminNavbar = () => {
- 
   const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/login");
+    navigate("/");
   };
 
   return (
-<div className="navbar">
-  <h2>Blog CMS</h2>
+    <div className="navbar">
+      
+      <h2 className="navbar-title">Blog CMS</h2>
 
-  <div className="nav-links">
-    <span onClick={() => navigate("/superadmin/profile")}>
-      Profile
-    </span>
+      <div className="nav-links">
+        <Link to="/superadmin/profile" className="nav-item">
+          Profile
+        </Link>
 
-    <span onClick={handleLogout}>
-      Logout
-    </span>
-  </div>
-</div>
+        <span className="nav-item" onClick={handleLogout}>
+          Logout
+        </span>
+      </div>
+
+    </div>
   );
 };
 
