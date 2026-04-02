@@ -55,3 +55,15 @@ export const deleteUser = async (req: Request<{ id: string }>,res: Response) => 
 
   res.json({ msg: "User deleted" });
 };
+
+
+export const profile = async(req:Request<{ id: string }>,res:Response) =>{
+
+  const id = parseInt(req.params.id);
+
+  const user = await User.findByPk(id);
+   if (!user) return res.status(404).json({ msg: "User not found" });
+
+  res.json(user);
+   
+}
