@@ -15,7 +15,7 @@ import "../css/AdminNavbar.css";
       <h2 className="navbar-title">Blog CMS</h2>
 
       <div className="nav-links">
-        <Link to="/superadmin/profile" className="nav-item">
+        <Link to="/admin/profile" className="nav-item">
           Profile
         </Link>
 
