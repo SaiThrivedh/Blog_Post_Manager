@@ -1,4 +1,3 @@
-
 import { sequelize } from "./models";
 import { User } from "./models"; // adjust if path differs
 import bcrypt from "bcrypt";
@@ -16,6 +15,7 @@ async function seed() {
   //     role: "superadmin",
   //     isActive: true,
   //   });
+
 
   //   console.log("✅ SuperAdmin created");
   //   process.exit();
