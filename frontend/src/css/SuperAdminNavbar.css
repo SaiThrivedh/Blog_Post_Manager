@@ -1,0 +1,87 @@
+:root {
+  --bg-body: #f8f7f4;
+  --bg-card: #ffffff;
+  --primary: #2563eb;
+  --text-main: #1a1a1a;
+  --text-muted: #525252;
+  --border: #e5e5e0;
+  --nav-height: 64px;
+  --sidebar-width: 240px;
+}
+
+
+.navbar {
+  height: 64px;
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  flex-shrink: 0;
+}
+
+.navbar-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-item-link {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.nav-item-link:hover {
+  color: var(--primary);
+}
+
+/* User Profile Section on the right */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--border);
+}
+
+.navbar {
+  height: 64px;
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  flex-shrink: 0; /* Keep height consistent */
+}
+
+.navbar h2 {
+  font-size: 1rem;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.nav-links span:hover {
+  color: var(--primary);
+}

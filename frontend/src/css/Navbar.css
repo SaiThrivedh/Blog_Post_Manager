@@ -1,0 +1,40 @@
+:root {
+  --bg-body: #f8f7f4;      /* Soft Paper/Cream */
+  --bg-card: #ffffff;      /* Pure white cards for subtle contrast */
+  --primary: #2563eb;      /* Vibrant Blue for links/actions */
+  --text-main: #1a1a1a;    /* Near Black for readability */
+  --text-muted: #525252;   /* Deep Gray for content */
+  --border: #e5e5e0;       /* Warm Gray border */
+}
+
+.navbar {
+  height: 64px;
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.navbar h2 {
+  color: var(--primary);
+  margin: 0;
+  font-weight: 700;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 500;
+  margin-left: 1.5rem;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}

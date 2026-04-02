@@ -1,0 +1,95 @@
+:root {
+  --bg-body: #f8f7f4;
+  --bg-card: #ffffff;
+  --primary: #2563eb;
+  --text-main: #1a1a1a;
+  --text-muted: #525252;
+  --border: #e5e5e0;
+  --nav-height: 64px;
+  --sidebar-width: 240px;
+}
+
+
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--text-main);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+  height: 100%;
+}
+
+.sidebar-logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  padding-left: 0.5rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  color: #a3a3a3;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.sidebar-link:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-link.active {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar {
+  width: 260px;
+  background-color: var(--text-main);
+  height: 100vh;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+  flex-shrink: 0; /* Prevents sidebar from squishing */
+}
+
+.sidebar-logo {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+  padding-left: 0.5rem;
+}
+
+.sidebar-item {
+  padding: 0.8rem 1rem;
+  color: #a3a3a3;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  transition: 0.2s;
+}
+
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+/* Use your --primary blue for the active menu item */
+.sidebar-item.active {
+  background-color: var(--primary);
+  color: #ffffff;
+}
