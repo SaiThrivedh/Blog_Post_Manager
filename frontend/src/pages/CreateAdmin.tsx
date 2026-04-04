@@ -1,5 +1,7 @@
 import { useState } from "react";
 import api from "../api/axios";
+import '../css/createadmin.css'
+
 
 const CreateAdmin = () => {
   const [name, setName] = useState("");
@@ -16,17 +18,36 @@ const CreateAdmin = () => {
     }
   };
 
-  return (
-    <div>
-      <h2>Create Admin</h2>
+return (
+  <div className="form-page">
+    <h2>Create Admin</h2>
 
-      <input placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
-      <input placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-      <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+    <div className="form-card">
 
-      <button onClick={handleCreate}>Create</button>
+      <div className="form-group">
+        <label>Name</label>
+        <input value={name} onChange={e => setName(e.target.value)} />
+      </div>
+
+      <div className="form-group">
+        <label>Email</label>
+        <input value={email} onChange={e => setEmail(e.target.value)} />
+      </div>
+
+      <div className="form-group">
+        <label>Password</label>
+        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+      </div>
+
+      <div className="form-footer">
+        <button className="btn-primary" onClick={handleCreate}>
+          Create Admin
+        </button>
+      </div>
+
     </div>
-  );
+  </div>
+);
 }
 
 export default CreateAdmin;

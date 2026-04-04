@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import api from "../api/axios";
+import { useNavigate } from "react-router-dom";
+import '../css/viewposts.css'
 
- const ViewPosts = () => {
+
+const ViewPosts = () => {
   const [posts, setPosts] = useState<any[]>([]);
+  const navigate = useNavigate(); // 👈 add this
 
   const fetchPosts = async () => {
     const res = await api.get("/posts");
@@ -25,28 +29,44 @@ import api from "../api/axios";
     fetchPosts();
   };
 
+
   return (
-    <div>
-      <h2>Posts</h2>
+  <div className="posts-page">
+    <h2>Posts</h2>
 
+    <div className="posts-container">
       {posts.map(post => (
-        <div key={post.id}>
-          <h3>{post.title}</h3>
-          <p>Author: {post.User?.name}</p>
-          <p>{post.content}</p>
-          <p>Status: {post.status}</p>
+        <div className="post-card" key={post.id}>
 
-          <button onClick={() => updateStatus(post.id, post.status)}>
-            Toggle Status
-          </button>
+          <div className="post-row">
 
-          <button onClick={() => deletePost(post.id)}>
-            Delete
-          </button>
+            <div className="post-info">
+              <div className="post-title">{post.title}</div>
+
+              <div className="post-meta">
+                {post.User?.name} • {post.content.slice(0, 60)}...
+              </div>
+            </div>
+
+            <div>
+              <span className={`status ${post.status}`}>
+                {post.status}
+              </span>
+            </div>
+
+          </div>
+
+          <div className="post-actions">
+            <button onClick={() => navigate(`/blog/${post.id}`)}>View</button>
+            <button onClick={() => updateStatus(post.id, post.status)}>Toggle</button>
+            <button className="btn-danger" onClick={() => deletePost(post.id)}>Delete</button>
+          </div>
+
         </div>
       ))}
     </div>
-  );
-}
+  </div>
+);
+};
 
 export default ViewPosts

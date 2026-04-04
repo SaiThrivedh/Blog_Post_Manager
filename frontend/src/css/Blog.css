@@ -1,14 +1,6 @@
-:root {
-  --bg-body: #f8f7f4;      /* Soft Paper/Cream */
-  --bg-card: #ffffff;      /* Pure white cards for subtle contrast */
-  --primary: #2563eb;      /* Vibrant Blue for links/actions */
-  --text-main: #1a1a1a;    /* Near Black for readability */
-  --text-muted: #525252;   /* Deep Gray for content */
-  --border: #e5e5e0;       /* Warm Gray border */
-}
 .blog-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
   padding: 1rem 0;
 }

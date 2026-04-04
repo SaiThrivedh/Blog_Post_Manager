@@ -1,18 +1,13 @@
 :root {
-  --bg-body: #f8f7f4;
-  --bg-card: #ffffff;
-  --primary: #2563eb;
-  --text-main: #1a1a1a;
-  --text-muted: #525252;
-  --border: #e5e5e0;
   --nav-height: 64px;
-  --sidebar-width: 240px;
 }
 
 
 .navbar {
   height: var(--nav-height);
-  background: var(--bg-card);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+
   border-bottom: 1px solid var(--border);
 
   display: flex;
@@ -20,41 +15,52 @@
   justify-content: space-between;
 
   padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 
 .navbar-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--text-main); /* 🔥 not blue anymore */
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-
-.nav-item {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-weight: 500;
-  text-decoration: none; 
-
-  padding: 6px 10px;
-  border-radius: 6px;
-  transition: 0.2s;
-}
-
-.nav-item:hover {
-  background: #f1f5f9;
   color: var(--text-main);
 }
 
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-item {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+
+  padding: 6px 12px;
+  border-radius: 8px;
+
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+
 .nav-item.active {
+  background: var(--primary-light);
   color: var(--primary);
   font-weight: 600;
+}
+
+
+.nav-item:last-child:hover {
+  background: #fee2e2;
+  color: #dc2626;
 }

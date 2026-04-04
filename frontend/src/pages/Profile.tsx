@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import api from '../api/axios';
+import '../css/profile.css'
+
 
 const Profile = () => {
   const [user, setUser] = useState<any>(null);
@@ -32,18 +34,34 @@ const Profile = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
-  return (
-    <div>
-      <h1>Profile</h1>
+return (
+  <div className="profile-page">
+    <h2>Profile</h2>
+
+    <div className="profile-card">
       {user && (
         <>
-          <p><b>Username:</b> {user.username}</p>
-          <p><b>Email:</b> {user.email}</p>
-          {user.bio && <p><b>Role:</b> {user.Role}</p>}
+          <div className="profile-row">
+            <span className="profile-label">Username</span>
+            <span className="profile-value">{user.name}</span>
+          </div>
+
+          <div className="profile-row">
+            <span className="profile-label">Email</span>
+            <span className="profile-value">{user.email}</span>
+          </div>
+
+          {user.Role && (
+            <div className="profile-row">
+              <span className="profile-label">Role</span>
+              <span className="profile-value">{user.Role}</span>
+            </div>
+          )}
         </>
       )}
     </div>
-  );
+  </div>
+);
 };
 
 export default Profile;

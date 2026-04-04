@@ -1,0 +1,47 @@
+:root {
+--bg-body: #f8f7f4;
+--bg-card: #ffffff;
+--primary: #2563eb;
+--text-main: #1a1a1a;
+--text-muted: #525252;
+--border: #e5e5e0;
+
+--sidebar-width: 260px;
+--nav-height: 64px;
+}
+
+/* RESET */
+body {
+margin: 0;
+font-family: system-ui, -apple-system, sans-serif;
+background: var(--bg-body);
+}
+
+/* MAIN LAYOUT */
+.app-layout {
+display: flex;
+height: 100vh;
+overflow: hidden; /* prevent full page scroll */
+}
+
+/* RIGHT SIDE */
+.content-right {
+flex: 1;
+display: flex;
+flex-direction: column;
+height: 100vh;
+}
+
+/* ONLY THIS SCROLLS */
+.main-scrollable-area {
+flex: 1;
+overflow-y: auto;
+padding: 2rem;
+}
+
+/* CENTER CONTENT */
+.main-content {
+max-width: 1200px;
+margin: 0 auto;
+width: 100%;
+}

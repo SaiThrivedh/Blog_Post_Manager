@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../api/axios";
+import '../css/viewadmins.css'
 
 
 const ViewAdmins = () => {
@@ -25,25 +26,43 @@ const ViewAdmins = () => {
   };
 
   return (
-    <div>
-      <h2>Admins</h2>
+  <div className="admins-page">
+    <h2>Admins</h2>
 
+    <div className="admins-container">
       {users.map(user => (
-        <div key={user.id}>
-          <p>{user.name} ({user.email})</p>
-          <p>Status: {user.isActive ? "Active" : "Inactive"}</p>
+        <div key={user.id} className="admin-card">
 
-          <button onClick={() => toggleActive(user.id, user.isActive)}>
-            Toggle Active
-          </button>
+          <div className="admin-row">
 
-          <button onClick={() => deleteUser(user.id)}>
-            Delete
-          </button>
+            <div className="admin-info">
+              <div className="admin-name">{user.name}</div>
+              <div className="admin-meta">{user.email}</div>
+            </div>
+
+            <div>
+              <span className={`status ${user.isActive ? "active" : "inactive"}`}>
+                {user.isActive ? "Active" : "Inactive"}
+              </span>
+            </div>
+
+          </div>
+
+          <div className="admin-actions">
+            <button onClick={() => toggleActive(user.id, user.isActive)}>
+              Toggle
+            </button>
+
+            <button className="btn-danger" onClick={() => deleteUser(user.id)}>
+              Delete
+            </button>
+          </div>
+
         </div>
       ))}
     </div>
-  );
+  </div>
+);
 }
 
 
