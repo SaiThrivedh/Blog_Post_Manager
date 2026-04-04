@@ -7,19 +7,27 @@ const Profile = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const res = await api.get('/profile');
-        setUser(res.data);
-      } catch (err: any) {
-        setError(err?.response?.data?.message || 'Failed to load');
-      } finally {
-        setLoading(false);
-      }
-    };
+  const token = localStorage.getItem("token");
 
-    fetchProfile();
-  }, []);
+  if (!token) {
+    setError("Not logged in");
+    setLoading(false);
+    return;
+  }
+
+  const fetchProfile = async () => {
+    try {
+      const res = await api.get('/users/profile');
+      setUser(res.data);
+    } catch (err: any) {
+      setError(err?.response?.data?.msg || 'Failed to load'); // 👈 FIXED msg
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchProfile();
+}, []);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
@@ -31,7 +39,7 @@ const Profile = () => {
         <>
           <p><b>Username:</b> {user.username}</p>
           <p><b>Email:</b> {user.email}</p>
-          {user.bio && <p><b>Bio:</b> {user.bio}</p>}
+          {user.bio && <p><b>Role:</b> {user.Role}</p>}
         </>
       )}
     </div>

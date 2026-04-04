@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import '../css/Blog.css'
 import BlogCard from '../components/BlogCard'
+import api from '../api/axios'
 
 function Blog() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-   axios.get("http://localhost:5000/api/posts/published")
+   api.get("/posts/published")
       .then(res => setPosts(res.data))
       .catch(err => console.log(err));
   }, []);

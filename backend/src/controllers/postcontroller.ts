@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { Post } from "../models";
+import { User } from "../models";
 
 export const createPost = async (req: any, res: Response) => {
   const post = await Post.create({
@@ -11,7 +12,15 @@ export const createPost = async (req: any, res: Response) => {
 };
 
 export const getPosts = async (_: Request, res: Response) => {
-  const posts = await Post.findAll();
+  const posts = await Post.findAll({
+    include: [
+      {
+        model: User,
+        attributes: ["id", "name", "email", "role"],
+      },
+    ],
+  });
+
   res.json(posts);
 };
 
