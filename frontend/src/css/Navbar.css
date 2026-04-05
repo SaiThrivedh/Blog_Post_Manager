@@ -1,40 +1,61 @@
-:root {
-  --bg-body: #f8f7f4;      /* Soft Paper/Cream */
-  --bg-card: #ffffff;      /* Pure white cards for subtle contrast */
-  --primary: #2563eb;      /* Vibrant Blue for links/actions */
-  --text-main: #1a1a1a;    /* Near Black for readability */
-  --text-muted: #525252;   /* Deep Gray for content */
-  --border: #e5e5e0;       /* Warm Gray border */
-}
-
 .navbar {
   height: 64px;
-  background-color: var(--bg-card);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10%;
+
+  padding: 0 8%;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-.navbar h2 {
-  color: var(--primary);
-  margin: 0;
+.navbar-logo {
+  font-size: 1.3rem;
   font-weight: 700;
+
+  background: linear-gradient(90deg, var(--primary), #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.nav-links a {
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
   text-decoration: none;
   color: var(--text-main);
   font-weight: 500;
-  margin-left: 1.5rem;
-  transition: color 0.2s ease;
+  font-size: 0.9rem;
+
+  padding: 6px 12px;
+  border-radius: 999px;
+
+  transition: all 0.2s ease;
 }
 
-.nav-links a:hover {
+.nav-link svg {
+  opacity: 0.7;
+}
+
+.nav-link:hover {
+  background: var(--primary-light);
   color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.nav-link:hover svg {
+  opacity: 1;
 }

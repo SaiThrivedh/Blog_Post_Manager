@@ -2,7 +2,7 @@ import "../css/Login.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
-import axios from "axios";
+
 
 export default function Login() {
   
@@ -12,13 +12,14 @@ export default function Login() {
 
   const handleLogin = async () => {
   try {
-    const res = await axios.post("http://localhost:5000/api/auth/login", {
+    const res = await api.post("/auth/login", {
       email,
       password,
     });
-
+     
     localStorage.setItem("token", res.data.token);
     localStorage.setItem("user", JSON.stringify(res.data.user));
+   
 
     const role = res.data.user.role;
 

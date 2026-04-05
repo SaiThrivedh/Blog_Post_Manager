@@ -1,11 +1,9 @@
-:root {
-  --bg-body: #f8f7f4;      /* Soft Paper/Cream */
-  --bg-card: #ffffff;      /* Pure white cards for subtle contrast */
-  --primary: #2563eb;      /* Vibrant Blue for links/actions */
-  --text-main: #1a1a1a;    /* Near Black for readability */
-  --text-muted: #525252;   /* Deep Gray for content */
-  --border: #e5e5e0;       /* Warm Gray border */
+body {
+  background: var(--bg-body);
+  margin: 0;
+  font-family: 'Inter', sans-serif;
 }
+
 .content {
   max-width: 1100px;
   margin: 2rem auto;

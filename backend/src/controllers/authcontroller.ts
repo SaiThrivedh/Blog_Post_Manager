@@ -1,7 +1,11 @@
 import { Request, Response } from "express";
 import { User } from "../models";
 import bcrypt from "bcrypt";
+import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
+
+dotenv.config();
+ const secret = process.env.SECRET_KEY as string;
 
 export const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
@@ -12,9 +16,12 @@ export const login = async (req: Request, res: Response) => {
   const valid = await bcrypt.compare(password, user.password);
   if (!valid) return res.status(400).json({ msg: "Wrong password" });
 
+ 
+
   const token = jwt.sign(
     { id: user.id, role: user.role },
-    "secret"
+    secret,
+    { expiresIn: "1h" }
   );
 
   res.json({

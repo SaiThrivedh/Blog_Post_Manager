@@ -3,7 +3,12 @@ import { User } from "../models";
 import bcrypt from "bcrypt";
 
 export const createAdmin = async (req: Request, res: Response) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, role } = req.body;
+
+ 
+  if (role === "superadmin") {
+    return res.status(403).json({ msg: "Cannot create superadmin" });
+  }
 
   const hash = await bcrypt.hash(password, 10);
 
@@ -17,10 +22,17 @@ export const createAdmin = async (req: Request, res: Response) => {
   res.json(user);
 };
 
+
+
 export const getUsers = async (_: Request, res: Response) => {
-  const users = await User.findAll();
+  const users = await User.findAll({
+    where: { role: "admin" } 
+  });
+
   res.json(users);
 };
+
+
 
 export const getUserById = async (req:Request<{ id: string }>, res:Response) =>{
        const id = parseInt(req.params.id);
@@ -28,16 +40,18 @@ export const getUserById = async (req:Request<{ id: string }>, res:Response) =>{
        res.json(user);
 }
 
-export const updateUser = async ( req: Request<{ id: string }>, res: Response) => {
+
+
+export const updateUser = async (req: any, res: Response) => {
   const id = parseInt(req.params.id);
   const { isActive } = req.body;
 
-  const user = await User.findByPk(id);
+  const user:any = await User.findByPk(id);
   if (!user) return res.status(404).json({ msg: "User not found" });
 
-
-  if (isActive === undefined) {
-    return res.status(400).json({ msg: "isActive required" });
+  
+  if (user.role === "superadmin") {
+    return res.status(403).json({ msg: "Cannot modify superadmin" });
   }
 
   await user.update({ isActive });
@@ -45,13 +59,32 @@ export const updateUser = async ( req: Request<{ id: string }>, res: Response) =
   res.json(user);
 };
 
-export const deleteUser = async (req: Request<{ id: string }>,res: Response) => {
-  const id = parseInt(req.params.id); 
 
-  const user = await User.findByPk(id);
+
+export const deleteUser = async (req: Request<{ id: string }>, res: Response) => {
+  const id = parseInt(req.params.id);
+
+  const user:any = await User.findByPk(id);
   if (!user) return res.status(404).json({ msg: "User not found" });
+
+ 
+  if (user.role === "superadmin") {
+    return res.status(403).json({ msg: "Cannot delete superadmin" });
+  }
 
   await user.destroy();
 
   res.json({ msg: "User deleted" });
 };
+
+
+export const profile = async(req:any,res:Response) =>{
+
+  const id = req.user.id;
+
+  const user = await User.findByPk(id);
+   if (!user) return res.status(404).json({ msg: "User not found" });
+
+  res.json(user);
+   
+}

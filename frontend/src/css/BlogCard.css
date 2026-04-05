@@ -1,65 +1,85 @@
-:root {
-  --bg-body: #f8f7f4;      /* Soft Paper/Cream */
-  --bg-card: #ffffff;      /* Pure white cards for subtle contrast */
-  --primary: #2563eb;      /* Vibrant Blue for links/actions */
-  --text-main: #1a1a1a;    /* Near Black for readability */
-  --text-muted: #525252;   /* Deep Gray for content */
-  --border: #e5e5e0;       /* Warm Gray border */
-}
-
 .Blog-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
+  padding: 1.4rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 0.6rem;
+
+  height: 100%;
 }
 
+/* hover */
 .Blog-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
   border-color: var(--primary);
 }
 
-.Blog-card h2 {
-  font-size: 1.25rem;
-  margin: 0 0 0.75rem 0;
-  color: var(--text-main);
-  line-height: 1.3;
-}
-
-.Blog-content {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.Blog-footer {
+/* META */
+.Blog-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border-top: 1px solid var(--border);
-  padding-top: 1rem;
+  font-size: 0.75rem;
 }
 
-/* Category Badge */
-.Blog-footer span:first-child {
-  background: #eef2ff;
+/* category badge */
+.category {
+  background: var(--primary-light);
   color: var(--primary);
   padding: 4px 10px;
   border-radius: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-transform: capitalize;
 }
 
-/* Date Text */
-.Blog-footer span:last-child {
+/* date */
+.date {
   color: var(--text-muted);
-  font-weight: 400;
+  font-size: 0.75rem;
+}
+
+/* title */
+.Blog-card h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0.3rem 0;
+  line-height: 1.4;
+}
+
+/* content */
+/* Add this to your existing .Blog-card p block */
+.Blog-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  /* ADD THIS: Forces long strings/links to wrap instead of overflowing */
+  overflow-wrap: break-word; 
+  word-break: break-word;
+}
+
+/* push bottom line */
+.Blog-card::after {
+  content: "";
+  height: 2px;
+  width: 0%;
+  background: var(--primary);
+  margin-top: auto;
+  transition: 0.3s;
+}
+
+.Blog-card:hover::after {
+  width: 100%;
 }

@@ -8,9 +8,13 @@ const secret = process.env.SECRET_KEY as string
 export const auth = (req: any, res: Response, next: NextFunction) => {
   const token = req.headers.authorization?.split(" ")[1];
 
-  if (!token) return res.status(401).json({ msg: "No token" });
+   if (!token) {
+    
+    return res.status(401).json({ msg: "No token" });
+  }
 
   try {
+    console.log("HEADER:", req.headers.authorization);
     const decoded = jwt.verify(token, secret);
     req.user = decoded;
     next();

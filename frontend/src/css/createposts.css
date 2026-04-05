@@ -1,0 +1,91 @@
+
+.post-form-page {
+  padding: 1.5rem 2rem;
+  max-width: 900px;
+}
+
+
+.form-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;   
+  row-gap: 1.2rem;
+}
+
+
+.form-group.full {
+  grid-column: span 2;
+}
+
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+
+label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background: var(--bg-card);
+  color: var(--text-main);
+
+  transition: all 0.2s ease;
+}
+
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+
+.form-footer {
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
