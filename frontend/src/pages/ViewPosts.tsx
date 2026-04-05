@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import api from "../api/axios";
-import { useNavigate } from "react-router-dom";
+import {  Link} from "react-router-dom";
 import '../css/viewposts.css'
 
 
 const ViewPosts = () => {
   const [posts, setPosts] = useState<any[]>([]);
-  const navigate = useNavigate(); // 👈 add this
+  
 
   const fetchPosts = async () => {
     const res = await api.get("/posts");
@@ -57,7 +57,9 @@ const ViewPosts = () => {
           </div>
 
           <div className="post-actions">
-            <button onClick={() => navigate(`/blog/${post.id}`)}>View</button>
+            <Link to={`${post.id}`} className="btn-link">
+               View
+            </Link>
             <button onClick={() => updateStatus(post.id, post.status)}>Toggle</button>
             <button className="btn-danger" onClick={() => deletePost(post.id)}>Delete</button>
           </div>

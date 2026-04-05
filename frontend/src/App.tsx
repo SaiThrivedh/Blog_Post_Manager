@@ -9,6 +9,8 @@ import AdminLayout from "./layouts/AdminLayout";
 import SuperAdminLayout from "./layouts/SuperAdminLayout";
 import SuperAdminDashboard from "./pages/SuperAdminDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
+import SuperAdminPostView from "./pages/SuperAdminPostView";
+import AdminPostView from "./pages/AdminPostView";
 import ViewAdmin from "./pages/ViewAdmin";
 import ViewPosts from "./pages/ViewPosts";
 import CreateAdmin from "./pages/CreateAdmin";
@@ -36,9 +38,8 @@ function App() {
           <Route element={<ProtectedRoute allowedRoles={["superadmin"]} />}>
             <Route path="/superadmin" element={<SuperAdminLayout />}>
                <Route path="dashboard" element={<SuperAdminDashboard />} />
-               <Route path="blog/:id" element={<BlogDetails />} /> 
+               <Route path="posts/:id" element={<SuperAdminPostView />} /> 
                <Route path="posts" element={<ViewPosts />} />
-               <Route path="posts/:id" element={<BlogDetails />} />
                <Route path="users" element={<ViewAdmin />} />
                <Route path="posts/create" element={<CreatePosts />} />
                <Route path="users/create" element={<CreateAdmin />} />
@@ -49,9 +50,8 @@ function App() {
           <Route element={<ProtectedRoute allowedRoles={["admin", "superadmin"]} />}>
                <Route path="/admin" element={<AdminLayout />}>
                   <Route path="dashboard" element={<AdminDashboard />} />
-                  <Route path="blog/:id" element={<BlogDetails />} /> 
+                  <Route path="posts/:id" element={<AdminPostView />} /> 
                   <Route path="posts" element={<ViewPosts />} />
-                  <Route path="posts/:id" element={<BlogDetails />} />
                   <Route path="posts/create" element={<CreatePosts />} />
                   <Route path="profile" element={<Profile />} />
                </Route>

@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../api/axios";
-import "../css/blogDetails.css";
+import "../css/BlogDetails.css";
 
 type Post = {
   id: number;
@@ -14,7 +14,8 @@ type Post = {
   };
 };
 
-function BlogDetails() {
+
+export default function SuperAdminPostView() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState<Post | null>(null);
@@ -37,13 +38,16 @@ function BlogDetails() {
 
   return (
     <div className="blog-container">
+
+
       <div className="blog-card">
+
         <button onClick={() => navigate(-1)} className="btn-back">
          <span className="arrow">←</span>
          Back
         </button>
         <h1 className="blog-title">{post.title}</h1>
-
+       
         <div className="blog-meta">
           <span className={`status ${post.status || "published"}`}>
             {post.status || "published"}
@@ -63,10 +67,9 @@ function BlogDetails() {
         )}
 
         <p className="blog-content">{post.content}</p>
+        
 
       </div>
     </div>
   );
 }
-
-export default BlogDetails;

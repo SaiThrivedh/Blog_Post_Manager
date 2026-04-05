@@ -51,22 +51,29 @@ export const deletePost = async (req: Request, res: Response) => {
 };
 
 export const getSinglePost = async (req: Request, res: Response) => {
-  const post = await Post.findOne({
-    where: {
-      id: req.params.id,
-      status: "published", // 🔥 only allow public posts
-    },
-    include: [
-      {
-        model: User,
-        attributes: ["id", "name"],
+  try {
+    const post = await Post.findOne({
+      where: {
+        id: req.params.id,
+        
       },
-    ],
-  });
+      include: [
+        {
+          model: User,
+          attributes: ["id", "name"],
+        },
+      ],
+    });
 
-  if (!post) {
-    return res.status(404).json({ msg: "Post not found" });
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+
+    res.json(post);
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
   }
-
-  res.json(post);
 };
+
+
+

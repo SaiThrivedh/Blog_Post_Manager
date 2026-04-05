@@ -6,6 +6,7 @@ import {
   updatePost,
   deletePost,
   getSinglePost,
+
 } from "../controllers/postcontroller";
 import { auth } from "../middleware/authmiddleware";
 

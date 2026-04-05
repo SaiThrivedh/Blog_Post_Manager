@@ -14,7 +14,8 @@ type Post = {
   };
 };
 
-function BlogDetails() {
+
+export default function AdminPostView() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState<Post | null>(null);
@@ -68,5 +69,3 @@ function BlogDetails() {
     </div>
   );
 }
-
-export default BlogDetails;

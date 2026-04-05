@@ -14,22 +14,24 @@ type Props = {
 }
 
 function BlogCard({ post }: Props) {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
+
   return (
-<div onClick={() => navigate(`/blog/${post.id}`)} className='Blog-card'>
-  
-  <div className="Blog-meta">
-    <span className="category">{post.category}</span>
-    <span className="date">
-      {new Date(post.createdAt).toDateString()}
-    </span>
-  </div>
+    <div
+      onClick={() => navigate(`/blog/${post.id}`)}
+      className="Blog-card"
+    >
+      <div className="Blog-meta">
+        <span className="category">{post.category}</span>
+        <span className="date">
+          {new Date(post.createdAt).toDateString()}
+        </span>
+      </div>
 
-  <h2>{post.title}</h2>
+      <h2>{post.title}</h2>
 
-  <p>{post.content}</p>
-
-</div>
+      <p>{post.content}</p>
+    </div>
   )
 }
 
