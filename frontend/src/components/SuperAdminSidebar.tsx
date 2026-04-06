@@ -14,7 +14,7 @@ const SuperAdminSidebar = () => {
   return (
     <div className="sidebar">
 
-      <h3 className="sidebar-logo">⚡Super Admin</h3>
+      <h3 className="sidebar-logo">Super Admin</h3>
 
       <div className="sidebar-section">
         <Link className="sidebar-link" to="/superadmin/dashboard">
