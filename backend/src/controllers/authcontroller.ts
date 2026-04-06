@@ -17,6 +17,9 @@ export const login = async (req: Request, res: Response) => {
   if (!valid) return res.status(400).json({ msg: "Wrong password" });
 
  
+  if (user.role === "admin" && !user.isActive) {
+    return res.status(403).json({ msg: "Admin account is deactivated" });
+  }
 
   const token = jwt.sign(
     { id: user.id, role: user.role },
@@ -25,11 +28,11 @@ export const login = async (req: Request, res: Response) => {
   );
 
   res.json({
-  token,
-  user: {
-    id: user.id,
-    email: user.email,
-    role: user.role,
-  },
-});
+    token,
+    user: {
+      id: user.id,
+      email: user.email,
+      role: user.role,
+    },
+  });
 };
