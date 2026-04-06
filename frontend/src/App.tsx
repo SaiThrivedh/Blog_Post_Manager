@@ -42,7 +42,7 @@ function App() {
                <Route path="posts" element={<ViewPosts />} />
                <Route path="users" element={<ViewAdmin />} />
                <Route path="posts/create" element={<CreatePosts />} />
-               <Route path="users/create" element={<CreateAdmin />} />
+                 <Route path="users/create" element={<CreateAdmin />} />
                <Route path="profile" element={<Profile />} />
            </Route>
           </Route>

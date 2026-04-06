@@ -2,7 +2,11 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { isLoggedIn, getUser } from "../utils/auth";
 
-export default function ProtectedRoute({ allowedRoles }: any) {
+interface ProtectedRouteProps {
+  allowedRoles: string[];
+}
+
+export default function ProtectedRoute({ allowedRoles }: ProtectedRouteProps) {
     
   const user = getUser();
 
