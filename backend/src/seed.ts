@@ -1,4 +1,3 @@
-
 import { sequelize } from "./models";
 import { User } from "./models"; // adjust if path differs
 import bcrypt from "bcrypt";
