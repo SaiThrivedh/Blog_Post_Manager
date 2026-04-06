@@ -29,7 +29,7 @@ export default function Login() {
 
   } catch (err: any) {
     const msg =
-      err?.response?.data?.msg ||   // your backend uses "msg"
+      err?.response?.data?.msg ||   
       err?.message ||
       "Login failed";
 

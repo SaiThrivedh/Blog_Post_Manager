@@ -3,7 +3,8 @@ import { Routes, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
 import Blog from "./pages/Blog";
-
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import PublicLayout from "./layouts/PublicLayout";
 import AdminLayout from "./layouts/AdminLayout";
 import SuperAdminLayout from "./layouts/SuperAdminLayout";
@@ -28,6 +29,8 @@ function App() {
            <Route path="/" element={<PublicLayout />}>
            <Route index element={<Blog/>}/>
            <Route path="blog/:id" element={<BlogDetails />} /> 
+           <Route path="contact" element={<Contact />} /> 
+           <Route path="about" element={<About />} /> 
            </Route>
 
 
