@@ -4,7 +4,7 @@ import BlogCard from '../components/BlogCard'
 import api from '../api/axios'
 
 function Blog() {
-  const [posts, setPosts] = useState<any[]>([]);
+  const [posts, setPosts] = useState([]);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
@@ -13,28 +13,26 @@ function Blog() {
       .catch(err => console.log(err));
   }, []);
 
-  const filteredPosts = posts.filter((p: any) =>
-    p.title.toLowerCase().includes(search.toLowerCase()) ||
-    p.content.toLowerCase().includes(search.toLowerCase())
-  );
-
   return (
-    <div className="blog-page">
-
-      <input
-        type="text"
-        placeholder="Search blogs..."
-        className="search-bar"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-
-      <div className="blog-container">
-        {filteredPosts.map((p: any) => (
-          <BlogCard key={p.id} post={p} />
-        ))}
+    <div>
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Search blogs..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </div>
 
+      <div className="blog-container">
+        {posts
+          .filter((p: any) =>
+            p.title.toLowerCase().includes(search.toLowerCase())
+          )
+          .map((p: any) => (
+            <BlogCard key={p.id} post={p} />
+          ))}
+      </div>
     </div>
   );
 }
