@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import api from "../api/axios";
-import {  Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import '../css/viewposts.css'
-
 
 const ViewPosts = () => {
   const [posts, setPosts] = useState<any[]>([]);
-  
+  const [search, setSearch] = useState("");
 
   const fetchPosts = async () => {
     const res = await api.get("/posts");
@@ -29,46 +28,59 @@ const ViewPosts = () => {
     fetchPosts();
   };
 
+  const filteredPosts = posts.filter(post =>
+    post.title.toLowerCase().includes(search.toLowerCase()) ||
+    post.content.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
-  <div className="posts-page">
-    <h2>Posts</h2>
+    <div className="posts-page">
+      <h2>Posts</h2>
 
-    <div className="posts-container">
-      {posts.map(post => (
-        <div className="post-card" key={post.id}>
+      <input
+        type="text"
+        placeholder="Search posts..."
+        className="search-bar"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
 
-          <div className="post-row">
+      <div className="posts-container">
+        {filteredPosts.map(post => (
+          <div className="post-card" key={post.id}>
 
-            <div className="post-info">
-              <div className="post-title">{post.title}</div>
+            <div className="post-row">
+              <div className="post-info">
+                <div className="post-title">{post.title}</div>
+                <div className="post-meta">
+                  {post.User?.name} • {post.content.slice(0, 60)}...
+                </div>
+              </div>
 
-              <div className="post-meta">
-                {post.User?.name} • {post.content.slice(0, 60)}...
+              <div>
+                <span className={`status ${post.status}`}>
+                  {post.status}
+                </span>
               </div>
             </div>
 
-            <div>
-              <span className={`status ${post.status}`}>
-                {post.status}
-              </span>
+            <div className="post-actions">
+              <Link to={`${post.id}`} className="btn-link">
+                View
+              </Link>
+              <button onClick={() => updateStatus(post.id, post.status)}>
+                Toggle
+              </button>
+              <button className="btn-danger" onClick={() => deletePost(post.id)}>
+                Delete
+              </button>
             </div>
 
           </div>
-
-          <div className="post-actions">
-            <Link to={`${post.id}`} className="btn-link">
-               View
-            </Link>
-            <button onClick={() => updateStatus(post.id, post.status)}>Toggle</button>
-            <button className="btn-danger" onClick={() => deletePost(post.id)}>Delete</button>
-          </div>
-
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
 };
 
-export default ViewPosts
+export default ViewPosts;

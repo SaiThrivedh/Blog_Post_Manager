@@ -1,8 +1,24 @@
-
 .posts-page {
   padding: 1.5rem 2rem;
 }
 
+.search-bar {
+  width: 100%;
+  margin: 0.8rem 0 1.2rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+  background: var(--bg-card);
+  color: var(--text-main);
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.search-bar:focus {
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
 
 .posts-container {
   background: var(--bg-card);
@@ -20,7 +36,6 @@
   border-bottom: none;
 }
 
-
 .post-row {
   display: flex;
   justify-content: space-between;
@@ -31,7 +46,6 @@
   max-width: 70%;
 }
 
-
 .post-title {
   font-size: 1rem;
   font-weight: 600;
@@ -39,13 +53,11 @@
   margin-bottom: 2px;
 }
 
-
 .post-meta {
   font-size: 0.85rem;
   color: var(--text-muted);
   line-height: 1.4;
 }
-
 
 .status {
   padding: 0.25rem 0.65rem;
@@ -55,13 +67,11 @@
   text-transform: capitalize;
 }
 
-
 .post-actions {
   margin-top: 0.6rem;
   display: flex;
   gap: 0.5rem;
 }
-
 
 button {
   padding: 0.35rem 0.7rem;
@@ -75,13 +85,11 @@ button {
   transition: all 0.15s ease;
 }
 
-
 button:hover {
   border-color: var(--primary);
   color: var(--primary);
   background: var(--primary-light);
 }
-
 
 .btn-primary {
   background: var(--primary);
@@ -92,7 +100,6 @@ button:hover {
 .btn-primary:hover {
   opacity: 0.9;
 }
-
 
 .btn-danger {
   background: transparent;
