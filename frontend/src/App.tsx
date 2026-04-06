@@ -53,7 +53,7 @@ function App() {
            </Route>
           </Route>
 
-          <Route element={<ProtectedRoute allowedRoles={["admin", "superadmin"]} />}>
+          <Route element={<ProtectedRoute allowedRoles={["admin"]} />}>
                <Route path="/admin" element={<AdminLayout />}>
                   <Route path="dashboard" element={<AdminDashboard />} />
                   <Route path="posts/:id" element={<AdminPostView />} /> 
