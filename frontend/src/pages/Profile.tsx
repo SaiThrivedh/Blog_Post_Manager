@@ -22,7 +22,7 @@ const Profile = () => {
       const res = await api.get('/users/profile');
       setUser(res.data);
     } catch (err: any) {
-      setError(err?.response?.data?.msg || 'Failed to load'); // 👈 FIXED msg
+      setError(err?.response?.data?.msg || 'Failed to load');
     } finally {
       setLoading(false);
     }

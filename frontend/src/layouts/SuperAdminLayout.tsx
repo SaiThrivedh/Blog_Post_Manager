@@ -1,6 +1,6 @@
 import "../css/SuperAdminLayout.css";
 import "../css/SuperAdminNavbar.css";
-import Sidebar from "../components/SuperAdminSidebar"; // Make sure to use .sidebar classes there
+import Sidebar from "../components/SuperAdminSidebar";
 import SuperAdminNavbar from "../components/SuperAdminNavbar";
 
 import { Outlet } from "react-router-dom";

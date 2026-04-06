@@ -28,7 +28,6 @@
   margin-bottom: 25px;
 }
 
-/* form */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -66,7 +65,7 @@
   opacity: 0.9;
 }
 
-/* info */
+
 .contact-info {
   margin-top: 25px;
   color: var(--text-muted);

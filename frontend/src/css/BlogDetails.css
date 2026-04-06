@@ -16,7 +16,6 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
 }
 
-/* Title */
 .blog-title {
   font-size: 32px;
   font-weight: 700;
@@ -24,7 +23,6 @@
   margin-bottom: 10px;
 }
 
-/* Meta */
 .blog-meta {
   display: flex;
   justify-content: space-between;
@@ -34,7 +32,6 @@
   font-size: 14px;
 }
 
-/* Status badge */
 .status {
   padding: 4px 10px;
   border-radius: 999px;
@@ -52,7 +49,6 @@
   color: #92400e;
 }
 
-/* Content */
 .blog-content {
   color: var(--text-main);
   line-height: 1.7;
@@ -60,7 +56,6 @@
   white-space: pre-line;
 }
 
-/* Loading */
 .loading {
   text-align: center;
   margin-top: 100px;
@@ -99,7 +94,6 @@
   transform: translateX(-1px) scale(0.98);
 }
 
-/* arrow style */
 .arrow {
   font-size: 16px;
   line-height: 1;

@@ -1,6 +1,6 @@
 import "../css/AdminLayout.css";
 import "../css/AdminNavbar.css";
-import AdminSidebar from "../components/AdminSidebar" // Make sure to use .sidebar classes there
+import AdminSidebar from "../components/AdminSidebar"
 import AdminNavbar from "../components/AdminNavbar";
 
 import { Outlet } from "react-router-dom";

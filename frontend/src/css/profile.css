@@ -1,10 +1,10 @@
-/* Page (align like others) */
+
 .profile-page {
   padding: 1.5rem 2rem;
   max-width: 900px;
 }
 
-/* Card */
+
 .profile-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -12,7 +12,7 @@
   padding: 1.5rem;
 }
 
-/* Rows */
+
 .profile-row {
   display: flex;
   justify-content: space-between;
@@ -24,14 +24,14 @@
   border-bottom: none;
 }
 
-/* Label */
+
 .profile-label {
   font-size: 0.85rem;
   color: var(--text-muted);
   font-weight: 500;
 }
 
-/* Value */
+
 .profile-value {
   font-size: 0.9rem;
   color: var(--text-main);
