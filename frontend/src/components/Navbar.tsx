@@ -5,7 +5,7 @@ import { Home, LogIn, Info, Phone } from "lucide-react"
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <h2 className="navbar-logo">Blog</h2>
+      <h2 className="navbar-logo">Blog CMS</h2>
 
       <div className="nav-links">
         <Link to="/" className="nav-link">
