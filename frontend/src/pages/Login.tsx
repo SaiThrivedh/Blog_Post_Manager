@@ -23,8 +23,8 @@ export default function Login() {
 
     const role = res.data.user.role;
 
-    if (role === "superadmin") navigate("/superadmin");
-    else if (role === "admin") navigate("/admin");
+    if (role === "superadmin") navigate("/superadmin/dashboard");
+    else if (role === "admin") navigate("/admin/dashboard");
     else navigate("/");
 
   } catch (err: any) {
