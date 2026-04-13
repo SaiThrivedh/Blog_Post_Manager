@@ -12,7 +12,7 @@ export const createPost = async (req: any, res: Response) => {
   res.json(post);
 };
 
-export const getPosts = async (_: Request, res: Response) => {
+export const getPosts = async (req: Request, res: Response) => {
   const posts = await Post.findAll({
     include: [
       {
@@ -25,7 +25,7 @@ export const getPosts = async (_: Request, res: Response) => {
   res.json(posts);
 };
 
-export const getPublished = async (_: Request, res: Response) => {
+export const getPublished = async (req: Request, res: Response) => {
   const posts = await Post.findAll({
     where: { status: "published" },
     include: [

@@ -24,7 +24,7 @@ export const createAdmin = async (req: Request, res: Response) => {
 
 
 
-export const getUsers = async (_: Request, res: Response) => {
+export const getUsers = async (req: Request, res: Response) => {
   const users = await User.findAll({
     where: { role: "admin" } 
   });
