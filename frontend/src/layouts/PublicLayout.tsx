@@ -6,7 +6,7 @@ export default function PublicLayout() {
   return (
     <>
       <Navbar />
-      <div className="content">
+      <div className="content.full-widtht">
         <Outlet />
       </div>
     </>

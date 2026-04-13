@@ -4,9 +4,17 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  
+}
+
 .content {
   max-width: 1100px;
   margin: 2rem auto;
   padding: 0 1rem;
   min-height: calc(100vh - 64px);
 }
+

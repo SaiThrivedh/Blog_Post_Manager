@@ -24,7 +24,7 @@ function Blog() {
         />
       </div>
 
-      <div className="blog-container">
+      <div className="blog-grid">
         {posts
           .filter((p: any) =>
             p.title.toLowerCase().includes(search.toLowerCase())
