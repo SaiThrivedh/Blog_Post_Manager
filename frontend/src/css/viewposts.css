@@ -2,9 +2,15 @@
   padding: 1.5rem 2rem;
 }
 
-.search-bar {
-  width: 100%;
+.filters {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
   margin: 0.8rem 0 1.2rem;
+}
+
+.search-bar {
+  flex: 1;
   padding: 0.5rem 0.8rem;
   border-radius: 8px;
   border: 1px solid var(--border);
@@ -18,6 +24,28 @@
 .search-bar:focus {
   border-color: var(--primary);
   background: var(--primary-light);
+}
+
+.category-filter {
+  width: 180px;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+  background: var(--bg-card);
+  color: var(--text-main);
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-filter:focus {
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
+
+.category-filter:hover {
+  border-color: var(--primary);
 }
 
 .posts-container {
@@ -59,6 +87,15 @@
   line-height: 1.4;
 }
 
+.category-badge {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--primary-light);
+  color: var(--primary);
+  margin: 0 6px;
+}
+
 .status {
   padding: 0.25rem 0.65rem;
   border-radius: 999px;
@@ -91,16 +128,6 @@ button:hover {
   background: var(--primary-light);
 }
 
-.btn-primary {
-  background: var(--primary);
-  color: #fff;
-  border: none;
-}
-
-.btn-primary:hover {
-  opacity: 0.9;
-}
-
 .btn-danger {
   background: transparent;
   color: #ef4444;
@@ -119,7 +146,6 @@ button:hover {
   border: 1px solid var(--border);
   font-size: 0.8rem;
   font-weight: 500;
-  cursor: pointer;
   background: var(--bg-card);
   color: var(--text-main);
   text-decoration: none;

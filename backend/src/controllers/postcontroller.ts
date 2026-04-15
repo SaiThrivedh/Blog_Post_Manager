@@ -77,3 +77,24 @@ export const getSinglePost = async (req: Request, res: Response) => {
 
 
 
+export const getPostsByCategory = async (req: Request, res: Response) => {
+  try {
+    const { category } = req.params;
+
+    const posts = await Post.findAll({
+      where: {
+        category: category,
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["id", "name"],
+        },
+      ],
+    });
+
+    res.json(posts);
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error });
+  }
+};

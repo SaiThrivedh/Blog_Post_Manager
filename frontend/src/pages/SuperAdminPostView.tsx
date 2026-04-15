@@ -9,8 +9,8 @@ type Post = {
   content: string;
   status?: string;
   createdAt?: string;
-  author?: {
-    username: string;
+  User?: {
+    name: string;
   };
 };
 
@@ -60,9 +60,9 @@ export default function SuperAdminPostView() {
           )}
         </div>
 
-        {post.author && (
-          <p style={{ marginBottom: "15px", color: "var(--text-muted)" }}>
-            By {post.author.username}
+        {post.User && (
+          <p className="blog-author">
+            By {post.User.name}
           </p>
         )}
 

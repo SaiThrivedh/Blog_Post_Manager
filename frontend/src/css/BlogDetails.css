@@ -92,3 +92,15 @@
   font-size: 16px;
   line-height: 1;
 }
+
+.blog-author {
+  margin-bottom: 18px;
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.blog-author span {
+  color: var(--text-main);
+  font-weight: 600;
+}

@@ -7,6 +7,18 @@ const CreatePosts = () => {
   const [content, setContent] = useState("");
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState("draft");
+  const categories = [
+  "tech",
+  "health",
+  "lifestyle",
+  "finance",
+  "education",
+  "sports",
+  "travel",
+  "food",
+  "business",
+  "entertainment",
+];
 
   const handleCreate = async () => {
     try {
@@ -52,11 +64,19 @@ const CreatePosts = () => {
           </div>
 
           <div className="form-group">
-            <label>Category</label>
-            <input
+          <label>Category</label>
+            <select
               value={category}
-              onChange={e => setCategory(e.target.value)}
-            />
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="">Select category</option>
+
+              {categories.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div className="form-group">
