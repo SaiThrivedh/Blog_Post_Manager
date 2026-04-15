@@ -34,16 +34,11 @@ const ViewPosts = () => {
     fetchPosts();
   };
 
-  const filteredPosts = posts.filter(post => {
-    if (selectedCategory && post.category !== selectedCategory) return false;
-
-    if (search) {
-      const text = (post.title + post.content).toLowerCase();
-      return text.includes(search.toLowerCase());
-    }
-
-    return true;
-  });
+  const filteredPosts = posts.filter(post =>
+     post.title.toLowerCase().includes(search.toLowerCase()) || 
+     post.content.toLowerCase().includes(search.toLowerCase()) || 
+     post.User?.name.toLowerCase().includes(search.toLowerCase()) 
+    );
 
   return (
     <div className="posts-page">
