@@ -12,7 +12,21 @@ export const Post = sequelize.define("Post", {
 
   title: { type: DataTypes.STRING, allowNull: false },
   content: { type: DataTypes.TEXT, allowNull: false },
-  category: { type: DataTypes.STRING },
+  category: {
+  type: DataTypes.ENUM(
+    "tech",
+    "health",
+    "lifestyle",
+    "finance",
+    "education",
+    "sports",
+    "travel",
+    "food",
+    "business",
+    "entertainment"
+  ),
+  allowNull: false
+},
 
   status: {
     type: DataTypes.ENUM("draft", "published"),

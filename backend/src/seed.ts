@@ -17,7 +17,7 @@ async function seed() {
   //   });
 
 
-  //   console.log("✅ SuperAdmin created");
+  //   console.log(" SuperAdmin created");
   //   process.exit();
   // } catch (err) {
   //   console.error(err);
